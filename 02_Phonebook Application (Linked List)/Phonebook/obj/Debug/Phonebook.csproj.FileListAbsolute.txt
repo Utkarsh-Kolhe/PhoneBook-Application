@@ -1,0 +1,7 @@
+D:\C# Repository\Phonebook\Phonebook\bin\Debug\Phonebook.exe.config
+D:\C# Repository\Phonebook\Phonebook\bin\Debug\Phonebook.exe
+D:\C# Repository\Phonebook\Phonebook\bin\Debug\Phonebook.pdb
+D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.AssemblyReference.cache
+D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.CoreCompileInputs.cache
+D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.exe
+D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.pdb
