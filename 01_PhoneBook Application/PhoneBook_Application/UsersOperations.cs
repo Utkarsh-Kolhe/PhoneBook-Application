@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
@@ -11,12 +12,27 @@ namespace PhoneBook_Application
     public class UsersOperations
     {
         static List<User> user = new List<User>();
-            
+
+        public string emailPattern = @"^\w+@\w+\.[a-zA-Z]{2,}$";
+        public string phonePattern = @"^(\+91[\s\-]?)?[789]\d{9}$";
+        public string zipCodePattern = @"^\d{6}$";
+        public bool check = true; 
 
         public void userInput()
         {
-            Console.Write("Enter contact number: ");
-            string contact = Console.ReadLine();
+            string contact;
+            string email;
+            string zipCode;
+            do
+            {
+                Console.Write("Enter contact number: ");
+                contact = Console.ReadLine();
+                check = Regex.IsMatch(contact, phonePattern);
+                if(!check)
+                {
+                    Console.WriteLine("You entered invalid phone number!!.\nPlease enter valid phone number.");
+                }
+            } while (!check);
 
             if(checkContact(contact))
             {
@@ -27,8 +43,17 @@ namespace PhoneBook_Application
             Console.Write("Enter name: ");
             string name = Console.ReadLine();
 
-            Console.Write("Enter email: ");
-            string email = Console.ReadLine();
+            do
+            {
+                Console.Write("Enter email: ");
+                email = Console.ReadLine();
+
+                check = Regex.IsMatch(email, emailPattern);
+                if(!check)
+                {
+                    Console.WriteLine("You entered invalid email address!!.\nPlease enter valid email address.");
+                }
+            } while (!check);
 
             Console.Write("Enter city: ");
             string city = Console.ReadLine();
@@ -36,8 +61,16 @@ namespace PhoneBook_Application
             Console.Write("Enter state: ");
             string state = Console.ReadLine();
 
-            Console.Write("Enter zipcode: ");
-            string zipCode = Console.ReadLine();
+            do
+            {
+                Console.Write("Enter zipcode: ");
+                zipCode = Console.ReadLine();
+                check = Regex.IsMatch(zipCode, zipCodePattern);
+                if (!check)
+                {
+                    Console.WriteLine("You entered invalid Zip Code!!.\nPlease enter valid Zip Code.");
+                }
+            } while (!check);
 
             User usr = new User(contact, name, email, city, state, zipCode);
             user.Add(usr);
@@ -115,13 +148,29 @@ namespace PhoneBook_Application
                                 break;
 
                             case 2: // contact
-                                Console.Write("Enter new contact: ");
-                                user[i].contact = Console.ReadLine();
+                                do
+                                {
+                                    Console.Write("Enter new contact: ");
+                                    user[i].contact = Console.ReadLine();
+                                    check = Regex.IsMatch(user[i].contact, phonePattern);
+                                    if (!check)
+                                    {
+                                        Console.WriteLine("You entered invalid phone number!!.\nPlease enter valid phone number.");
+                                    }
+                                } while (!check);
                                 break;
 
                             case 3:// email
-                                Console.Write("Enter new email: ");
-                                user[i].email = Console.ReadLine();
+                                do
+                                {
+                                    Console.Write("Enter new email: ");
+                                    user[i].email = Console.ReadLine();
+                                    check = Regex.IsMatch(user[i].email, emailPattern);
+                                    if (!check)
+                                    {
+                                        Console.WriteLine("You entered invalid email address!!.\nPlease enter valid email address.");
+                                    }
+                                } while (!check);
                                 break;
 
                             case 4: // city
@@ -135,8 +184,16 @@ namespace PhoneBook_Application
                                 break;
 
                             case 6: // zipcode
-                                Console.Write("Enter new zipcode: ");
-                                user[i].zipCode = Console.ReadLine();
+                                do
+                                {
+                                    Console.Write("Enter new zipcode: ");
+                                    user[i].zipCode = Console.ReadLine();
+                                    check = Regex.IsMatch(user[i].zipCode, zipCodePattern);
+                                    if (!check)
+                                    {
+                                        Console.WriteLine("You entered invalid Zip Code!!.\nPlease enter valid Zip Code.");
+                                    }
+                                } while (!check);
                                 break;
                         }
                     } while (chs != 7);

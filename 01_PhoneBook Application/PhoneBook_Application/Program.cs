@@ -54,6 +54,14 @@ namespace PhoneBook_Application
                     case 7: // clear
                         usr.DeleteAllUsers();
                         break;
+
+                    case 8: // Exit
+                        Console.WriteLine("\nExiting program. . .\n");
+                        break;
+
+                    default:
+                        Console.WriteLine("\nInvalid Choice! ! !");
+                        break;
                 }
             } while (choice != 8);
         }
