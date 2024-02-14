@@ -143,12 +143,6 @@ namespace Phonebook
                         break;
                 }
             } while (chs != 7);
-
-            Console.WriteLine("\nNew details: ");
-            Console.WriteLine("Name: " + current.data.name);
-            Console.WriteLine("Contact: " + current.data.contact);
-            Console.WriteLine("Email: " + current.data.email);
-            Console.WriteLine("City: " + current.data.city + "        State: " + current.data.state + "     ZipCode: " + current.data.zipCode);
         }
 
         public void RemoveContactDetails(string contact)

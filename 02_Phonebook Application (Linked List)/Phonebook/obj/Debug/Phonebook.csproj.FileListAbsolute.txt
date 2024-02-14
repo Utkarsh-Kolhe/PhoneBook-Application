@@ -5,3 +5,10 @@ D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.AssemblyReferenc
 D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.csproj.CoreCompileInputs.cache
 D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.exe
 D:\C# Repository\Phonebook\Phonebook\obj\Debug\Phonebook.pdb
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\bin\Debug\Phonebook.exe.config
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\bin\Debug\Phonebook.exe
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\bin\Debug\Phonebook.pdb
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\obj\Debug\Phonebook.csproj.AssemblyReference.cache
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\obj\Debug\Phonebook.csproj.CoreCompileInputs.cache
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\obj\Debug\Phonebook.exe
+D:\Git\Phone Book\02_Phonebook Application (Linked List)\Phonebook\obj\Debug\Phonebook.pdb
