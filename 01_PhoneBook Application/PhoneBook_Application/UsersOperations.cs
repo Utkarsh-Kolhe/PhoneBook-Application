@@ -6,6 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.IO;
 
 namespace PhoneBook_Application
 {
@@ -16,7 +17,42 @@ namespace PhoneBook_Application
         public string emailPattern = @"^\w+@\w+\.[a-zA-Z]{2,}$";
         public string phonePattern = @"^(\+91[\s\-]?)?[789]\d{9}$";
         public string zipCodePattern = @"^\d{6}$";
-        public bool check = true; 
+        public bool check = true;
+
+        private string filePath = @"D:\Git\Phone Book\ContactDetails.txt";
+
+        public UsersOperations()
+        {
+            //string filePath = @"D:\Git\Phone Book\ContactDetails.txt";
+            if (File.Exists(filePath))
+            {
+                string[] users = File.ReadAllLines(filePath);
+                if (users.Length > 0)
+                {
+                    foreach (string line in users)
+                    {
+                        string[] details = line.Split(',');
+
+                        if (details.Length == 6)
+                        {
+                            string contact = details[0].Trim();
+                            string name = details[1].Trim();
+                            string email = details[2].Trim();
+                            string city = details[3].Trim();
+                            string state = details[4].Trim();
+                            string zipCode = details[5].Trim();
+                            User usr = new User(contact, name, email, city, state, zipCode);
+                            user.Add(usr);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                FileStream fileStream = File.Create(filePath);
+                fileStream.Close();
+            }
+        }
 
         public void userInput()
         {
@@ -28,13 +64,13 @@ namespace PhoneBook_Application
                 Console.Write("Enter contact number: ");
                 contact = Console.ReadLine();
                 check = Regex.IsMatch(contact, phonePattern);
-                if(!check)
+                if (!check)
                 {
                     Console.WriteLine("You entered invalid phone number!!.\nPlease enter valid phone number.");
                 }
             } while (!check);
 
-            if(checkContact(contact))
+            if (checkContact(contact))
             {
                 Console.WriteLine("\nThis contact is already saved.!!!");
                 return;
@@ -49,7 +85,7 @@ namespace PhoneBook_Application
                 email = Console.ReadLine();
 
                 check = Regex.IsMatch(email, emailPattern);
-                if(!check)
+                if (!check)
                 {
                     Console.WriteLine("You entered invalid email address!!.\nPlease enter valid email address.");
                 }
@@ -76,13 +112,30 @@ namespace PhoneBook_Application
             user.Add(usr);
         }
 
+        public void ShowAllContacts()
+        {
+            if(user.Count > 0)
+            {
+                Console.WriteLine("\n*******************************************************************************************************");
+                for (int i = 0; i < user.Count; i++)
+                {              
+                    Console.WriteLine("\nName: " + user[i].name);
+                    Console.WriteLine("Contact: " + user[i].contact);
+                    Console.WriteLine("Email: " + user[i].email);
+                    Console.WriteLine("City: " + user[i].city + "       State: " + user[i].state + "       Zipcode: " + user[i].zipCode);
+                    Console.WriteLine("\n*******************************************************************************************************");
+                }
+                
+            }
+        }
+
         public bool checkContact(string contact)
         {
-            for(int i = 0; i < user.Count; i++)
+            for (int i = 0; i < user.Count; i++)
             {
                 if (user[i].contact.Equals(contact))
                 {
-                    return true; 
+                    return true;
                 }
             }
             return false;
@@ -92,20 +145,21 @@ namespace PhoneBook_Application
             Console.Write("\nEnter user contact number: ");
             string findContact = Console.ReadLine();
             bool check = false;
-            for(int i = 0; i < user.Count; i++)
+            for (int i = 0; i < user.Count; i++)
             {
                 if (user[i].contact == findContact)
                 {
                     check = true;
+                    Console.WriteLine("\n*******************************************************************************************************");
                     Console.WriteLine("\nName: " + user[i].name);
                     Console.WriteLine("Contact: " + user[i].contact);
                     Console.WriteLine("Email: " + user[i].email);
                     Console.WriteLine("City: " + user[i].city + "       State: " + user[i].state + "       Zipcode: " + user[i].zipCode);
-
+                    Console.WriteLine("\n*******************************************************************************************************");
                 }
             }
 
-            if(check == false)
+            if (check == false)
             {
                 Console.WriteLine("User not found!!!!!!!!!!!");
             }
@@ -128,7 +182,7 @@ namespace PhoneBook_Application
                     Console.WriteLine("City: " + user[i].city + "       State: " + user[i].state + "       Zipcode: " + user[i].zipCode);
 
                     int chs;
-                    do 
+                    do
                     {
                         Console.WriteLine("\nEdit menu: ");
                         Console.WriteLine("1. Name");
@@ -238,7 +292,7 @@ namespace PhoneBook_Application
             Console.Write("Enter choice: ");
             int chs = Convert.ToInt32(Console.ReadLine());
 
-            switch(chs)
+            switch (chs)
             {
                 case 1: // state
                     Console.Write("\nEnter state name: ");
@@ -286,6 +340,26 @@ namespace PhoneBook_Application
         public void DeleteAllUsers()
         {
             user.Clear();
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+        }
+
+        public void SaveToTxt()
+        {
+            if (user.Count > 0)
+            {
+                string[] userArr = new string[user.Count];
+                int index = 0;
+                foreach (User ur in user)
+                {
+                    userArr[index] = ur.contact + ", " + ur.name + ", " + ur.email + ", " + ur.city + ", " + ur.state + ", " + ur.zipCode;
+                    index++;
+                }
+
+                File.WriteAllLines(filePath, userArr);
+            }
         }
     }
 }

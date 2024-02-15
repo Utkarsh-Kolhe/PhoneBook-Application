@@ -21,7 +21,8 @@ namespace PhoneBook_Application
                 Console.WriteLine("5. View all contact for a state or city");
                 Console.WriteLine("6. Get count of contacts.");
                 Console.WriteLine("7. Clear all the contact.");
-                Console.WriteLine("8. Exit");
+                Console.WriteLine("8. Show all the contact.");
+                Console.WriteLine("9. Exit");
                 Console.Write("\nEnter your choice: ");
                 choice = Convert.ToInt32(Console.ReadLine());
 
@@ -55,7 +56,12 @@ namespace PhoneBook_Application
                         usr.DeleteAllUsers();
                         break;
 
-                    case 8: // Exit
+                    case 8: // Show all contacts
+                        usr.ShowAllContacts();
+                        break;
+
+                    case 9: // Exit
+                        usr.SaveToTxt();
                         Console.WriteLine("\nExiting program. . .\n");
                         break;
 
@@ -63,7 +69,7 @@ namespace PhoneBook_Application
                         Console.WriteLine("\nInvalid Choice! ! !");
                         break;
                 }
-            } while (choice != 8);
+            } while (choice != 9);
         }
     }
 }
