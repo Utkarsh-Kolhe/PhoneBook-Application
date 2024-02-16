@@ -19,15 +19,16 @@ namespace PhoneBook_Application
         public string zipCodePattern = @"^\d{6}$";
         public bool check = true;
 
-        private string filePath = @"D:\Git\Phone Book\ContactDetails.txt";
+        private string filePath = @"D:\Git\Phone Book\ContactDetails.csv";
 
         public UsersOperations()
         {
-            //string filePath = @"D:\Git\Phone Book\ContactDetails.txt";
+            User usr = new User("Contact", "Name", "Email", "City", "State", "Zip Code");
+            user.Add(usr);
             if (File.Exists(filePath))
             {
                 string[] users = File.ReadAllLines(filePath);
-                if (users.Length > 0)
+                if (users.Length > 1)
                 {
                     foreach (string line in users)
                     {
@@ -35,14 +36,18 @@ namespace PhoneBook_Application
 
                         if (details.Length == 6)
                         {
+                            if (details[0].CompareTo("Contact") == 0)
+                            {
+                                continue;
+                            }
                             string contact = details[0].Trim();
                             string name = details[1].Trim();
                             string email = details[2].Trim();
                             string city = details[3].Trim();
                             string state = details[4].Trim();
                             string zipCode = details[5].Trim();
-                            User usr = new User(contact, name, email, city, state, zipCode);
-                            user.Add(usr);
+                            User us = new User(contact, name, email, city, state, zipCode);
+                            user.Add(us);
                         }
                     }
                 }
@@ -114,18 +119,26 @@ namespace PhoneBook_Application
 
         public void ShowAllContacts()
         {
-            if(user.Count > 0)
+            if (user.Count > 1)
             {
                 Console.WriteLine("\n*******************************************************************************************************");
                 for (int i = 0; i < user.Count; i++)
-                {              
+                {
+                    if (user[i].name.CompareTo("Name") == 0)
+                    {
+                        continue;
+                    }
                     Console.WriteLine("\nName: " + user[i].name);
                     Console.WriteLine("Contact: " + user[i].contact);
                     Console.WriteLine("Email: " + user[i].email);
                     Console.WriteLine("City: " + user[i].city + "       State: " + user[i].state + "       Zipcode: " + user[i].zipCode);
                     Console.WriteLine("\n*******************************************************************************************************");
                 }
-                
+
+            }
+            else
+            {
+                Console.WriteLine("\n Contact List is Empty.");
             }
         }
 
@@ -334,7 +347,7 @@ namespace PhoneBook_Application
 
         public void UserCount()
         {
-            Console.WriteLine("Total number of users: " + user.Count);
+            Console.WriteLine("Total number of users: " + (user.Count - 1));
         }
 
         public void DeleteAllUsers()
@@ -357,7 +370,6 @@ namespace PhoneBook_Application
                     userArr[index] = ur.contact + ", " + ur.name + ", " + ur.email + ", " + ur.city + ", " + ur.state + ", " + ur.zipCode;
                     index++;
                 }
-
                 File.WriteAllLines(filePath, userArr);
             }
         }

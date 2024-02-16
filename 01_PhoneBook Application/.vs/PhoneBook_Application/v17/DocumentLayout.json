@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\Git\\Phone Book\\01_PhoneBook Application\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|D:\\Git\\Phone Book\\01_PhoneBook Application\\PhoneBook_Application\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|solutionrelative:PhoneBook_Application\\User.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|d:\\git\\phone book\\01_phonebook application\\phonebook_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|solutionrelative:phonebook_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|D:\\Git\\Phone Book\\01_PhoneBook Application\\phonebook_application\\usersoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|solutionrelative:phonebook_application\\usersoperations.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|d:\\git\\phone book\\01_phonebook application\\phonebook_application\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|solutionrelative:phonebook_application\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|D:\\Git\\Phone Book\\01_PhoneBook Application\\phonebook_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10E3F685-8DBD-4D5B-BE0C-4E006794698C}|PhoneBook_Application\\PhoneBook_Application.csproj|solutionrelative:phonebook_application\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Git\\Phone Book\\01_PhoneBook Application\\PhoneBook_Application\\Program.cs",
               "RelativeDocumentMoniker": "PhoneBook_Application\\Program.cs",
@@ -34,25 +34,24 @@
               "RelativeToolTip": "PhoneBook_Application\\Program.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADsAAAAcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-02-14T06:41:19.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-02-14T06:41:19.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "UsersOperations.cs",
               "DocumentMoniker": "D:\\Git\\Phone Book\\01_PhoneBook Application\\PhoneBook_Application\\UsersOperations.cs",
               "RelativeDocumentMoniker": "PhoneBook_Application\\UsersOperations.cs",
               "ToolTip": "D:\\Git\\Phone Book\\01_PhoneBook Application\\PhoneBook_Application\\UsersOperations.cs",
               "RelativeToolTip": "PhoneBook_Application\\UsersOperations.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAJ0AAACTAAAA",
+              "ViewState": "AQIAABcAAAAAAAAAAAAAwHkBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-02-14T06:41:20.348Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Git\\Phone Book\\01_PhoneBook Application\\PhoneBook_Application\\User.cs",
               "RelativeDocumentMoniker": "PhoneBook_Application\\User.cs",
